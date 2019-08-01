@@ -124,40 +124,14 @@ bool mStepper::run() {
     return _speed != 0.0f || distanceToGo() != 0;
 }
 
-// mStepper::mStepper(uint8_t interface, PinName pin1, PinName pin2): _bo(pin1,pin2){
-//     _interface = interface;
-//     _currentPos = 0;
-//     _targetPos = 0;
-//     _speed = 0.0;
-//     _maxSpeed = 1.0;
-//     _acceleration = 0.0;
-//     _sqrt_twoa = 1.0;
-//     _stepInterval = 0;
-//     _minPulseWidth = 1;
-//     _lastStepTime = 0;
-//     _n = 0;
-//     _c0 = 0.0;
-//     _cn = 0.0;
-//     _cmin = 1.0;
-//     _direction = DIRECTION_CCW;
 
-//     int i;
-//     for (i = 0; i < 4; i++)
-//  _pinInverted[i] = 0;
-//  //   if (enable)
-//  //enableOutputs();
-//     // Some reasonable default
-//     setAcceleration(1);  
-//     t.start();
-// }
- mStepper::mStepper(std::uint8_t interface, PinName pin1, PinName pin2,  PinName pin3, PinName pin4, bool enable): _bo(pin1,pin2,pin3,pin4){
+ mStepper::mStepper(std::uint8_t interface, PinName pin1, PinName pin2, PinName pin3, PinName pin4, bool enable): _bo(pin1,pin2,pin3,pin4){
     _interface = interface;
     _currentPos = 0;
     _targetPos = 0;
     _speed = 0.0;
     _maxSpeed = 1.0;
     _acceleration = 0.0;
-  //  _sqrt_twoa = 1.0;
     _stepInterval = 0;
     _minPulseWidth = 1;
     _lastStepTime = 0;
@@ -170,9 +144,6 @@ bool mStepper::run() {
     int i;
     for (i = 0; i < 4; i++)
     _pinInverted[i] = 0;
- //   if (enable)
-    //enableOutputs();
-    // Some reasonable default
     setAcceleration(1); 
     t.start();
  }

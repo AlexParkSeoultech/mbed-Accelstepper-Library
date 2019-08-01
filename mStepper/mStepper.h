@@ -142,11 +142,13 @@ public:
     /// \param[in] absolute The desired absolute position. Negative is
     /// anticlockwise from the 0 position.
     void    moveTo(long absolute); 
-
+    void setAbsoluteTarget(long absolute){ moveTo(absolute); }  // wrapping
+    
     /// Set the target position relative to the current position
     /// \param[in] relative The desired position relative to the current position. Negative is
     /// anticlockwise from the current position.
     void    move(long relative);
+    void setRelativeTarget(long relative){ move(relative); }
 
     /// Poll the motor and step it if a step is due, implementing
     /// accelerations and decelerations to acheive the target position. You must call this as
@@ -187,21 +189,23 @@ public:
     /// The most recently set speed
     /// \return the most recent speed in steps per second
     float   speed();
-
+    float getTargetSpeed(){ return speed();}
+    
     /// The distance from the current position to the target position.
     /// \return the distance from the current position to the target position
     /// in steps. Positive is clockwise from the current position.
     long    distanceToGo();
-
+    long getDistanceToGo(){ return  distanceToGo(); }
     /// The most recently set target position.
     /// \return the target position
     /// in steps. Positive is clockwise from the 0 position.
     long    targetPosition();
-
+    long getTargetPosition(){ return targetPosition();}
     /// The currently motor position.
     /// \return the current motor position
     /// in steps. Positive is clockwise from the 0 position.
     long    currentPosition();  
+    long getCurrentPosition(){ return currentPosition();}
 
     /// Resets the current position of the motor, so that wherever the motor
     /// happens to be right now is considered to be the new 0 position. Useful
